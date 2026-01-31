@@ -5,7 +5,6 @@ import { Image, ScrollView, Text, View } from "react-native";
 import SearchBar from "../components/SearchBar";
 import { useRouter } from "expo-router";
 
-
 const Index = () => {
   const router = useRouter();
 
@@ -21,8 +20,9 @@ const Index = () => {
 
         <View className="flex-1 mt-5">
           <SearchBar
-          onPress={() => router.push("/search")}
-          placeholder="Search for movies" />
+            onPress={() => router.push("/search")}
+            placeholder="Search for movies"
+          />
         </View>
       </ScrollView>
     </View>
