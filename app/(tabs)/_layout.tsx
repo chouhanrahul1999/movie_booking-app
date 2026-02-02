@@ -5,6 +5,7 @@ import { Tabs } from "expo-router";
 import React from "react";
 import { Image, Text, View } from "react-native";
 
+
 interface TabIconProps {
   focused: boolean;
   icon: any;
