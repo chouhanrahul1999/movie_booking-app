@@ -6,6 +6,7 @@ import { ActivityIndicator, FlatList, Image, Text, View } from "react-native";
 import MovieCard from "../components/MovieCard";
 import { icons } from "@/constants/icons";
 import SearchBar from "../components/SearchBar";
+// import { updatedSearchCount } from "@/lib/appwrite";
 
 const Search = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -23,6 +24,12 @@ const Search = () => {
       }),
     false,
   );
+  useEffect(() => {
+    if (searchQuery.trim() && movies && movies.length > 0) {
+      // updatedSearchCount(searchQuery, movies[0]).catch(console.error);
+      // Search tracking disabled until Appwrite database is configured
+    }
+  }, [movies, searchQuery]);
 
   useEffect(() => {
     const timeoutId = setTimeout(async () => {
