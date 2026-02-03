@@ -27,13 +27,15 @@ const Search = () => {
   );
 
   useEffect(() => {
-    const timeoutId = setTimeout(async () => {
-      if (searchQuery.trim()) {
-        await refetch();
+    if (searchQuery.trim() && movies && movies.length > 0) {
+      updatedSearchCount(searchQuery, movies[0]).catch(console.error);
+    }
+  }, [movies, searchQuery]);
 
-        if (movies?.length > 0 && movies?.[0])
-          await updatedSearchCount(searchQuery, movies[0]);
-        
+  useEffect(() => {
+    const timeoutId = setTimeout(() => {
+      if (searchQuery.trim()) {
+        refetch();
       } else {
         reset();
       }
