@@ -29,7 +29,7 @@ export const updatedSearchCount = async (query: string, movie: Movie) => {
       );
     } else {
       await database.createDocument(DATABASE_ID, COLLECTION_ID, ID.unique(), {
-        metricId: Date.now(), // Use timestamp as integer
+        metricId: Date.now(),
         searchTerm: query,
         movie_id: movie.id,
         count: 1,
@@ -54,7 +54,7 @@ export const getTrendingMovies = async (): Promise<
     return result.documents as unknown as TrendingMovie[];
 
   } catch (err) {
-    console.error(err);
+    console.error('Error fetching trending movies:', err);
     return undefined;
   }
 };
